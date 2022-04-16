@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>{% block title %}{% endblock %}</title>
+	{% block extra_style %}
+	{% endblock %}
+	<link rel="stylesheet" href="{% static 'homestyles.css'%}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+	<section id="navbar">
+		<div>
+			<nav class="navbar navbar-expand-lg">
+				<a class="navbar-brand logo" href="#">Doctello</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon">
+					<i class="fa fa-bars fa-lg"></i>
+				</span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="{% url 'adminhome' %}">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'newdoctors' %}">New Doctors</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'newpharmacy' %}">New Pharmacy</a>
+						</li>
+                        <li class="nav-item">
+							<a class="nav-link" href="{% url 'home' %}">Logout</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</section>
+    {% block content %}
+    {% endblock %}
+	<section id="footer" class="section-50 bg-gradient">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h1><b>FAQ</b></h1>
+					<p>if you have a question, text below</p>
+					<form action="" class="subscribe-form">
+						<div class="input-group input-group-lg">
+							<input type="text" class="form-control" placeholder="Enter your FAQ" aria-label="Enter your Faq" aria-describedby="basic-addon2"><br>
+							<div class="input-group-append">
+								<button class="btn btn-primary" type="button">Submit</button>
+							</div>
+						</div>
+					</form>
+					<br>
+					<br>
+					<div class="social-links text-center">
+						<a href="https://www.facebook.com/" class="text-white"><i class="fa fa-facebook fa-lg" data-aos="fade-up" data-aos-delay="100"></i></a>
+						<a href="https://www.linkedin.com/" class="text-white"><i class="fa fa-linkedin fa-lg" data-aos="fade-up" data-aos-delay="200"></i></a>
+						<a href="https://www.youtube.com/" class="text-white"><i class="fa fa-youtube fa-lg" data-aos="fade-up" data-aos-delay="300"></i></a>
+						<a href="#" class="text-white"><i class="fa fa-dribbble fa-lg" data-aos="fade-up" data-aos-delay="400"></i></a>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<h4>Footer Links</h4>
+					<hr>
+					<ul class="footer-ul">
+						<li>About</li>
+						<li>Home</li>
+						<li>Contact</li>
+						<li>Select Slot</li>
+						<li>Booked Slots</li>
+						<li>Allconsultations</li>
+					</ul>
+				</div>
+				<div class="col-md-3">
+					<h4>Contact</h4>
+					<hr>
+					<ul class="footer-ul">
+						<li><i class="fa fa-map-marker"></i> KLUNIVERSITY deemed to be university</li>
+						<li><i class="fa fa-phone"></i> 0863 239 9999</li>
+						<li><i class="fa fa-envelope"></i> mail@kluniversity.com</li>
+					</ul>
+				</div>
+			</div>
+			<br>
+			<hr class="hrf">
+			<br>
+			<div class="text-center">
+				<p>@copywrites of the website</p>
+			</div>
+		</div>
+	</section>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

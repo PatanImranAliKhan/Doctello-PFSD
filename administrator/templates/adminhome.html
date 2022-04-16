@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js">
+    </script>
+    <link rel="stylesheet" href="{% static 'homestyles.css'%}">
+    <style>
+        canvas {
+            width: 700px !important;
+            height: 400px !important;
+        }
+
+        .small-box {
+            border-radius: 15px;
+            padding: 10px;
+            height: 150px;
+        }
+        #pie-chart
+        {
+            margin: 0px auto;
+        }
+    </style>
+
+</head>
+
+<body>
+    <section id="navbar">
+		<div>
+			<nav class="navbar navbar-expand-lg">
+				<a class="navbar-brand logo" href="#">Doctello</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon">
+					<i class="fa fa-bars fa-lg"></i>
+				</span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active">
+							<a class="nav-link" href="{% url 'adminhome' %}">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'newdoctors' %}">New Doctors</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="{% url 'newpharmacy' %}">New Pharmacy</a>
+						</li>
+                        <li class="nav-item">
+							<a class="nav-link" href="{% url 'home' %}">Logout</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</section>
+    <span style="margin: 25px;">&nbsp;</span>
+    <div class="row" style="margin-left: 350px;">
+        <div class="col-lg-4 col-6">
+            <div class="small-box bg-info">
+                <div class="inner">
+                    <h3>{{ order_count }}</h3>
+
+                    <p>Totals Order</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-4 col-6">
+            <div class="small-box bg-warning">
+                <div class="inner">
+                    <h3>{{con_count}}</h3>
+
+                    <p>Total Consultations</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 offset-md-3 my-5">
+        <h2>data Visualization on Monthly Orders Done as per the Month</h2>
+        <br>
+        <div class="card ">
+            <div class="card-body pb-0 text-center">
+                <h2 class="text-success">Monthly Orders</h2>
+                <hr>
+            </div>
+            <div class="card-body">
+                <canvas id="myChart"></canvas>
+                <script type="text/javascript">
+                    var ctx = document.getElementById('myChart').getContext('2d');
+                    data1 = {{ data1 | safe }}
+                    data2 = {{ data2 | safe }}
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'sep', 'oct', 'Nov', 'Dec'],
+                            datasets: [{
+                                label: 'Monthly Orders',
+                                data: data1,
+                                backgroundColor: [
+                                    'rgba(255, 99, 132)',
+                                    'rgba(255, 99, 132)',
+                                    'rgba(255, 99, 132)',
+                                    'rgba(255, 99, 132)',
+                                    'rgba(255, 99, 132)',
+                                    'rgba(255, 99, 132)',
+                                    'rgba(255, 99, 132)',
+                                    'rgba(255, 99, 132)',
+                                    'rgba(255, 99, 132)',
+                                    'rgba(255, 99, 132)',
+                                    'rgba(255, 99, 132)',
+                                    'rgba(255, 99, 132)',
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            },
+
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2>data Visualization on Monthly Doctor consultations</h2>
+        <br>
+        <div class="card ">
+            <div class="card-body pb-0 text-center">
+                <h2 class="text-success">Doctor consultations</h2>
+                <hr>
+            </div>
+            <div class="card-body">
+                <canvas id="myChar"></canvas>
+                <script type="text/javascript">
+                    var ctx = document.getElementById('myChar').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'sep', 'oct', 'Nov', 'Dec'],
+                            datasets: [{
+                                label: 'Doctor consultations', data: data2,
+                                backgroundColor: [
+                                    'rgba(54, 162, 235)',
+                                    'rgba(255, 206, 86)',
+                                    'rgba(75, 192, 192)',
+                                    'rgba(153, 102, 255)',
+                                    'rgba(255, 159, 64)',
+                                    'rgba(255, 99, 132)',
+                                    'rgba(54, 162, 235)',
+                                    'rgba(255, 206, 86)',
+                                    'rgba(75, 192, 192)',
+                                    'rgba(153, 102, 255)',
+                                    'rgba(255, 159, 64,0.8)',
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            },
+
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div>
+        <div class="container" style="width: 75%;">
+            <h2 style="text-align: center;">data Papulation</h2>
+            <br>
+            <br>
+            <canvas id="pie-chart"></canvas>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+        <script>
+            fdata={{fdata}}
+            var config = {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        data: fdata,
+                        backgroundColor: [
+                            '#2FC59F','#FF1C2F', '#FF9200'
+                        ],
+                        label: 'Population'
+                    }],
+                    labels: ['Patients','Doctors','Pharmacist']
+                },
+                options: {
+                    responsive: true
+                }
+            };
+
+            window.onload = function () {
+                var ctx = document.getElementById('pie-chart').getContext('2d');
+                window.myPie = new Chart(ctx, config);
+            };
+        </script>
+    </div>
+</body>
+
+</html>

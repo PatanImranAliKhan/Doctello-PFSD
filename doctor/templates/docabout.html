@@ -1,0 +1,87 @@
+{% extends "doc_base.html" %}
+{% load static %}
+{% block title %}
+	About
+{% endblock %}
+{% block content %}
+	<div id="about" class="section-100 bg-white">
+		<div class="container">
+			<div class="row flex-center">
+				<div class="col-md-6 col-lg-6">
+					<img src="{% static 'images/aboutimg.png'%}" alt="" class="img-fluid m-b-15" data-aos="fade-up">
+				</div>
+				<div class="col-md-6 col-lg-5 offset-lg-1">
+					<h1 data-aos="fade-left" data-aos-delay="100"><b>Solve The Problems of Patients</b></h1>
+					<br>
+					<div class="feat">
+						<div class="feat-box" data-aos="fade-left" data-aos-delay="300">
+							<div class="feat-icon">
+								<i class="fa fa-user fa-2x" aria-hidden="true"></i>
+							</div>
+							<div class="feat-content">
+								<h5>Patient</h5>
+								<p>Consult doctors based on their problems at any time as if the their consult doctor is not busy.</p>
+							</div>
+						</div>
+						<div class="feat-box" data-aos="fade-left" data-aos-delay="400">
+							<div class="feat-icon">
+								<i class="fa fa-user-md fa-2x" aria-hidden="true"></i>
+							</div>
+							<div class="feat-content">
+								<h5>Doctor</h5>
+								<p>Solve the problems of Patients who consult them and charge fee from them.</p>
+							</div>
+						</div>
+						<div class="feat-box" data-aos="fade-left" data-aos-delay="500">
+							<div class="feat-icon">
+								<i class="fa fa-plus-square fa-2x" aria-hidden="true"></i>
+							</div>
+							<div class="feat-content">
+								<h5>Pharmacy</h5>
+								<p>Help to provide medicines for the patients as per their requirements.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="team" class="section-100 bg-white">
+		<div class="container">
+			<h1 class="text-center" data-aos="fade-up" data-aos-delay="100"><b>Our Team</b></h1>
+			<p class="text-center" data-aos="fade-up" data-aos-delay="200">We are very supportive team</p>
+			<br>
+			<br>
+			<div class="row">
+				<div class="col-lg-4 col-sm-6">
+					<div class="team-box" data-aos="fade-left" data-aos-delay="100">
+						<img src="{% static 'images/imran.jpg' %}" alt="">
+						<div class="team-info">
+							<h4 class="text-muted">P. Imran Ali Khan</h4>
+							<p class="primary-color">Frontend Developer</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<div class="team-box" data-aos="fade-left" data-aos-delay="200">
+						<img src="{% static 'images/krishnavamsi.png' %}" alt="">
+						<div class="team-info">
+							<h4 class="text-muted">S. Krishna Vamsi</h4>
+							<p class="primary-color">Backend Developer</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<div class="team-box" data-aos="fade-left" data-aos-delay="300">
+						<img src="{% static 'images/srinivas.png' %}" alt="">
+						<div class="team-info">
+							<h4 class="text-muted">S. Shanmukh Srinivas</h4>
+							<p class="primary-color">Data Scientist</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

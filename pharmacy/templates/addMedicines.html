@@ -1,0 +1,53 @@
+{% extends "med_base.html" %}
+{% load static %}
+{% block title %}
+	Add Medicine
+{% endblock %}
+{% block extra_style %}
+<link rel="stylesheet" href="{% static 'addmedicine.css' %}">
+{% endblock %}
+{% block content %}
+    <section class="main-content">
+        <div class="container">
+            {% if success %}
+			<div class="alert alert-success" role="alert">
+				{{success}}
+			</div>
+			{% endif %}
+            <div class="d-none d-sm-none d-md-block">
+                <h1 class="text-center text-uppercase">Add Medicine</h1>
+                <br>
+            </div>
+            <div class="add-card d-flex rounded-lg overflow-hidden bg-white">
+                <div class="add-message d-none d-sm-none d-md-flex flex-column justify-content-center p-5">
+                    <img src="{% static 'images/addmedicine.png'%}" alt="Welcome" class="img-fluid mb-3">
+                    <h2>Welcome back</h2>
+                    <p>Add medicinesand make sure that, medicines are within the expiry date.</p>
+                </div>
+                <div class="add-body">
+                    <form action="{% url 'addmedicine' %}" method="POST" class="add-body-wrapper mx-auto">
+                        {% csrf_token %}
+                        <h3 class="text-center text-uppercase mb-3 text-primary">Medicine Detials</h3>
+                        <div class="form-group">
+                            <label>Medicine Name</label>
+                            {{form.medicinename}}
+                        </div>
+                        <div class="form-group">
+                            <label>Starting Price</label>
+                            {{form.startprice}}
+                        </div>
+                        <div class="form-group">
+                            <label>Ending price</label>
+                            {{form.endprice}}
+                        </div>
+                        <div class="form-group">
+                            <label>Image url</label>
+                            {{form.image}}
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block btn-lg">add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

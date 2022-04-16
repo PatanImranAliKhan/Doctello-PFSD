@@ -1,0 +1,99 @@
+{% extends "patient_base.html" %}
+{% load static %}
+{% block title %}
+    All Consultations
+{% endblock %}
+{% block extra_style %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .listofslots
+    {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        background-color: #f2f2f2;
+    }
+    table
+    {
+        width: 100%;
+        margin: 0px auto;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 15px;
+        text-align: center;
+    }
+    .tableheadrow
+    {
+        background-color: rgb(106, 35, 240);
+        height: 75px;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+    .tablerow
+    {
+        background-color: #fff;
+        height: 80px;
+        margin: 10px auto;
+    }
+    .but
+    {
+        padding: 5px;
+        background-color: rgb(238, 46, 110);
+        outline: none;
+        border-radius: 5px;
+        height: 40px;
+        color: #fff;
+        cursor: pointer;
+    }
+</style>
+{% endblock %}
+{% block content %}
+    <div class="listofslots">
+        <div class="container">
+            {% if success %}
+            <div class="alert alert-success" role="alert">
+                {{success}}
+            </div>
+            {% endif %}
+            {% if error %}
+            <div class="alert alert-danger" role="alert">
+                {{error}}
+            </div>
+            {% endif %}
+            {% if consults %}
+            <table>
+                <tr class="tableheadrow">
+                    <th>Doctor name</th>
+                    <th>Doctor Email</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Report</th>
+                </tr>
+                {% for consult in consults %}
+                    <div class="card">
+                        <tr class="tablerow">
+                            <td>{{consult.doctorname}}</td>
+                            <td>{{consult.doctoremail}}</td>
+                            <td>{{consult.date}}</td>
+                            <td>
+                                {% if consult.feedback %}
+                                    {{consult.feedback}}
+                                {% else %}
+                                    <span style="color: red;">no Feedback was given</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a href="/media/{{consult.report}}">{{consult.report}}</a>
+                            </td>
+                        </tr>
+                    </div>
+                {% endfor %}
+            </table>
+            {% else %}
+            <div class="jumbotron jumbotron-fluid">
+				<div class="container">
+					<h1 class="display-4">You have not recieved any consults yet</h1>
+				</div>
+			</div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Doctello</title>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/aos.css">
+	<link rel="stylesheet" type="text/css" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="{% static 'css/test.css'%}">
+</head>
+<body>
+	<section id="team" class="section-100 bg-white">
+		<div class="container">
+			<h1 class="text-center" data-aos="fade-up" data-aos-delay="100"><b>Our Team</b></h1>
+			<p class="text-center" data-aos="fade-up" data-aos-delay="200">We are very productive and supportive team</p>
+			<br>
+			<br>
+			<div class="row">
+				<div class="col-lg-4 col-sm-6">
+					<div class="team-box" data-aos="fade-left" data-aos-delay="100">
+						<img src="{% static 'images/imran.jpg' %}" alt="">
+						<div class="team-info">
+							<h4 class="text-muted">John Doe</h4>
+							<p class="primary-color">CEO</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<div class="team-box" data-aos="fade-left" data-aos-delay="200">
+						<img src="{% static 'images/imran.jpg' %}" alt="">
+						<div class="team-info">
+							<h4 class="text-muted">John Doe</h4>
+							<p class="primary-color">CEO</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<div class="team-box" data-aos="fade-left" data-aos-delay="300">
+						<img src="{% static 'images/imran.jpg' %}" alt="">
+						<div class="team-info">
+							<h4 class="text-muted">John Doe</h4>
+							<p class="primary-color">CEO</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="js/aos.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="home.js"></script>
+</body>
+</html>

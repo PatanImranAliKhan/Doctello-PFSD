@@ -1,0 +1,75 @@
+{% extends "adminbase.html" %}
+{% load static %}
+{% block title %}
+New Pharmacies
+{% endblock %}
+{% block extra_style %}
+<style>
+    .newpharmacies
+    {
+        min-height: 200px;
+    }
+	table
+	{
+		margin-top: 20px;
+	}
+    a
+    {
+        text-decoration: none;
+    }
+	.anchor
+	{
+		color: blue;
+		border-bottom: 1px solid blue;
+	}
+	.searchbut
+	{
+		width: 50px;
+		background-color: rgb(191, 204, 204);
+		border: none;
+		cursor: pointer;
+	}
+</style>
+{% endblock %}
+{% block content %}
+<div class="container">
+	<div class="newpharmacies">
+		{% if pharmacies %}
+			{% if error %}
+			<div class="alert alert-danger">
+				{{error}}
+			</div>
+			{% endif %}
+			<div class="table-responsive">
+				<table class="table table-striped bg-white">
+					<thead>
+						<tr>
+							<th scope="col">S.No</th>
+							<th scope="col">Email</th>
+							<th scope="col">Location</th>
+							<th scope="col">Qualification</th>
+							<th scope="col">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for pharmacy in pharmacies %}
+							<tr>
+								<th scope="row">{{ forloop.counter }}</th>
+								<td>{{pharmacy.email}}</td>
+								<td>{{pharmacy.location}}</td>
+								<td>{{pharmacy.qualification}}</td>
+								<td><a href="{% url 'pharmacydetails' pharmacy.email %}" class="anchor">View</a></td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		{% else %}
+		<div class="jumbotron" style="width: 100%;">
+			<!-- <h1 class="display-4">304 Error</h1> -->
+			<p class="lead">No pharmacies were found</p>
+		</div>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}

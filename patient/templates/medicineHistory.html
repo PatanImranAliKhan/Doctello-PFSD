@@ -1,0 +1,111 @@
+{% extends "patient_base.html" %}
+{% load static %}
+{% block title %}
+	Medical History
+{% endblock %}
+{% block extra_style %}
+<style>
+	img
+	{
+		width: 200px;
+		height: 200px;
+		margin: auto;
+	}
+	.history
+	{
+		margin: 20px 0px;
+	}
+	.cartdisplay
+	{
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		width: 100%;
+	}
+	.card
+	{
+		margin: 10px;
+	}
+	.btn
+	{
+		background-color: orange;
+		color: #fff;
+	}
+	@media (max-width: 992px)
+	{
+		.cartdisplay
+		{
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	@media (max-width: 525px)
+	{
+		.cartdisplay
+		{
+			grid-template-columns: 1fr;
+			margin: auto;
+			width: 80%;
+		}
+	}
+</style>
+{% endblock %}
+{% block content %}
+<div class="history">
+	<div class="container">
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+			<div class="cartdisplay">
+				<div class="card shadow-sm">
+					<img src="https://5.imimg.com/data5/EJ/VB/MY-42865263/paracetamol-tablets-500x500.jpg">
+					<div class="card-body">
+						<p class="card-text">
+							<u><b>Paracetolmol</b></u>
+							<br>
+							Price: 25/-
+						</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+								<button type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card shadow-sm">
+					<img src="https://5.imimg.com/data5/EJ/VB/MY-42865263/paracetamol-tablets-500x500.jpg">
+					<div class="card-body">
+						<p class="card-text">
+							<u><b>Paracetolmol</b></u>
+							<br>
+							Price: 25/-
+						</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+								<button type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card shadow-sm">
+					<img src="https://5.imimg.com/data5/EJ/VB/MY-42865263/paracetamol-tablets-500x500.jpg">
+					<div class="card-body">
+						<p class="card-text">
+							<u><b>Paracetolmol</b></u>
+							<br>
+							Price: 25/-
+						</p>
+						<div class="d-flex justify-content-between align-items-center">
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+								<button type="button" class="btn btn-sm btn-outline-secondary">Buy</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="alert alert-success" role="alert">
+			Total Price : 500/-
+		</div>
+	</div>
+</div>
+{% endblock %}

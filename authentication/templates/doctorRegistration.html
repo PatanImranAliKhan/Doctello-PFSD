@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+	Doctor Registration
+{% endblock %}
+{% block extra_style %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/signupstyle.css'%}">
+{% endblock %}
+{% block content %} 
+	<section class="body">
+		<div class="container">
+			{% if error %}
+			<div class="alert alert-danger" role="alert">
+				{{error}}
+			</div>
+			{% endif %}
+			<div class="signup-box" style="background-image: url({% static 'images/login-form-bg.png' %})">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="logo">
+							Register As <span class="logo-font">Doctor</span>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<br>
+						<h3 class="header-title">Signup</h3>
+						<form class="signup-form" enctype="multipart/form-data" action="{% url 'doctorReg' %}" method="POST">
+							{% csrf_token %}
+							<div class="form-group">
+                                <div class="row">
+                                    <div class="col">{{form.firstname}}</div>
+                                    <div class="col">{{form.lastname}}</div>
+                                </div> 
+							</div>
+                            <div class="form-group">
+                                {{form.email}}
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">{{form.mobile}}</div>
+                                    <div class="col">{{form.location}}</div>
+                                </div> 
+							</div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">{{form.qualification}}</div>
+                                    <div class="col">{{form.specialization}}</div>
+                                </div> 
+							</div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">{{form.experience}}</div>
+                                    <div class="col">{{form.consultationfee}}</div>
+                                </div> 
+							</div>
+                            <div class="form-group">
+                                Upload your CV{{form.resume}}
+                            </div>
+							<div class="form-group">
+                                Id proof cerificate{{form.idproof}}
+                            </div>
+                            <div class="form-group">
+								{{form.description}}
+                            </div>
+                            <div class="form-group">
+                                {{form.password}}
+                            </div>
+                            <div class="form-group">
+                                <label class="form-check-label">{{form.agreement}} I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+                            </div>
+							<div class="form-group">
+								<button class="btn btn-primary btn-block">Register</button>
+							</div>
+						</form>
+                        <div style="display: inline-flex;">
+                            <p>already have an account&nbsp;&nbsp;</p><a href="{% url 'login' %}">login</a>
+                        </div>
+					</div>
+					<div class="col-sm-6 hide-on-mobile corr">
+						<div id="demo" class="carousel slide" data-ride="carousel">
+							<ul class="carousel-indicators">
+								<li data-target="#demo" data-slide-to="0" class="active"></li>
+								<li data-target="#demo" data-slide-to="1"></li>
+							</ul>
+							<div class="carousel-inner active">
+                                <div class="carousel-item active">
+                                    <div class="slider-feature-card">
+                                        <img src="{% static 'images/icons/student.png'%}" alt="">
+                                        <h3 class="slider-title">Patient</h3>
+                                        <p class="slider-description">Register as a Patient to get contact with the doctor for any health problems.</p>
+                                        <button class="signupbut"><a href="{% url 'patientReg' %}">Signup</a></button>
+                                    </div>
+                                </div>
+								<div class="carousel-item">
+									<div class="slider-feature-card">
+										<img src="{% static 'images/icons/medicineicon.png'%}" alt="">
+										<h3 class="slider-title">Pharmacy</h3>
+										<p class="slider-description">Register as a Pharmacy to help the patients by suppling medicines.</p>
+										<button class="signupbut"><a href="{% url 'pharmacyReg' %}">Signup</a></button>
+									</div>
+								</div>
+							</div>
+							<a class="carousel-control-prev" href="#demo" data-slide="prev">
+								<span class="carousel-control-prev-icon"></span>
+							</a>
+							<a class="carousel-control-next" href="#demo" data-slide="next">
+								<span class="carousel-control-next-icon"></span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

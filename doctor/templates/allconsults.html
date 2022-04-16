@@ -1,0 +1,99 @@
+{% extends "doc_base.html" %}
+{% load static %}
+{% block title %}
+    All Consultations
+{% endblock %}
+{% block extra_style %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .listofslots
+    {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        background-color: #f2f2f2;
+    }
+    table
+    {
+        width: 80%;
+        margin: 0px auto;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 15px;
+        padding: 15px;
+        text-align: center;
+    }
+    .tableheadrow
+    {
+        background-color: rgb(106, 35, 240);
+        height: 75px;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+    .tablerow
+    {
+        background-color: #fff;
+        height: 80px;
+        margin: 10px auto;
+    }
+    .but
+    {
+        padding: 5px;
+        background-color: rgb(198, 17, 253);
+        outline: none;
+        border-radius: 5px;
+        height: 40px;
+        color: #fff;
+        cursor: pointer;
+    }
+    @media (max-width:765px)
+    {
+        table
+        {
+            width: 90%;
+        }
+    }
+</style>
+{% endblock %}
+{% block content %}
+    <div class="listofslots">
+        <div class="container">
+            {% if success %}
+            <div class="alert alert-success" role="alert">
+                {{success}}
+            </div>
+            {% endif %}
+            {% if error %}
+            <div class="alert alert-danger" role="alert">
+                {{error}}
+            </div>
+            {% endif %}
+            {% if consults %}
+            <table>
+                <tr class="tableheadrow">
+                    <th>Patient name</th>
+                    <th>Patient Email</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+                {% for consult in consults %}
+                    <form class="card" action="{% url 'viewdetails' consult.username consult.useremail consult.date %}">
+                        <tr class="tablerow">
+                            <td>{{consult.username}}</td>
+                            <td>{{consult.useremail}}</td>
+                            <td>{{consult.date}}</td>
+                            <td>
+                                <button class="but" type="submit">ViewDetails</button>
+                            </td>
+                        </tr>
+                    </form>
+                {% endfor %}
+            </table>
+            {% else %}
+            <div class="jumbotron jumbotron-fluid">
+				<div class="container">
+					<h1 class="display-4">You have not recieved any consults yet</h1>
+				</div>
+			</div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

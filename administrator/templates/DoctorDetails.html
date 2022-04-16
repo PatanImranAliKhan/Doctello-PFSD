@@ -1,0 +1,134 @@
+{% extends "adminbase.html" %}
+{% load static %}
+{% block title %}
+Doctor Details
+{% endblock %}
+{% block extra_style %}
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+
+    body {
+        background: #4378a0;
+        font-family: "Roboto", sans-serif;
+    }
+
+    .doctordetailscontent {
+        padding: 30px 0px;
+    }
+
+    .box {
+        padding: 30px 20px;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (min-width: 768px) {
+        .box {
+            padding: 50px;
+        }
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="doctordetailscontent">
+        <div class="box">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-1 col-sm-6">
+                        <b>Firstname: </b>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <p>{{doctor.firstname}}</p>
+                    </div>
+                    <div class="col-md-1 col-sm-6">
+                        <b>Lastname: </b>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <p>{{doctor.lastname}}</p>
+                    </div>
+                    <div class="col-md-1 col-sm-6">
+                        <b>Email : </b>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <p>{{doctor.email}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1 col-sm-6">
+                        <b>Mobile: </b>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <p>{{doctor.mobile}}</p>
+                    </div>
+                    <div class="col-md-1 col-sm-6">
+                        <b>Location: </b>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <p>{{doctor.location}}</p>
+                    </div>
+                    <div class="col-md-1 col-sm-6">
+                        <b>Qualification: </b>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <p>&nbsp;&nbsp;&nbsp;{{doctor.qualification}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-sm-6">
+                        <b>Specialization: </b>
+                    </div>
+                    <div class="col-md-2 col-sm-6">
+                        <p>{{doctor.specialization}}</p>
+                    </div>
+                    <div class="col-md-1 col-sm-6">
+                        <b>Experience: </b>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <p>{{doctor.experience}}</p>
+                    </div>
+                    <div class="col-md-2 col-sm-6">
+                        <b>Consultationfee: </b>
+                    </div>
+                    <div class="col-md-2 col-sm-6">
+                        <p>{{doctor.consultationfee}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-sm-6">
+                        <b>Resume : </b>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <a href="/media/{{doctor.resume}}" target="__blank">Doctor Resume</a>
+                    </div>
+                    <div class="col-md-2 col-sm-6">
+                        <b>Id Proof : </b>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <a href="/media/{{doctor.idproof}}" target="__blank">Doctor IdProof</a>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-2 col-sm-6">
+                        <b>Description : </b>
+                    </div>
+                    <div class="col-md-8 col-sm-6">
+                        <p>{{doctor.description}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-6 col-md-offset-3">
+                        <button class="btn btn-primary" type="submit">Accept</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

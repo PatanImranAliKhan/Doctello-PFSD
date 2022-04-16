@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+	Registration
+{% endblock %}
+{% block extra_style %}
+<link rel="stylesheet" href="{% static 'css/register.css'%}">
+{% endblock %}
+{% block content %}
+	<section id="register" class="section-100 bg-white">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4 col-sm-6">
+					<div class="card" style="width: 18rem;">
+						<img class="card-img-top" src="{% static 'images/icons/student.png' %}" alt="Card image cap">
+						<div class="card-body">
+						  <h5 class="card-title">Patient</h5>
+						  <p class="card-text">In this phase you can select a doctor based on your problem and hare the problem with him and you can buy the medicines, and it delivered to your requested place</p>
+						  <a href="{% url 'patientReg' %}" class="btn btn-primary">Register</a>
+						</div>
+					  </div>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<div class="card" style="width: 18rem;">
+						<img class="card-img-top" src="{% static 'images/icons/doctori.png'%}" alt="Card image cap">
+						<div class="card-body">
+						  <h5 class="card-title">Doctor</h5>
+						  <p class="card-text">In this phase you can select a free slot and check the patients who can consult you, and you can also give some health tips for the patients.</p>
+						  <a href="{% url 'doctorReg' %}" class="btn btn-primary">Register</a>
+						</div>
+					  </div>
+				</div>
+				<div class="col-lg-4 col-sm-6">
+					<div class="card" style="width: 18rem;">
+						<img class="card-img-top" src="{% static 'images/icons/medicineicon.png'%}" alt="Card image cap">
+						<div class="card-body">
+						  <h5 class="card-title">Pharmacy</h5>
+						  <p class="card-text">In this phase you can see the orders for the medicines given by patients and you can deliver them to the requested place and you can have the deiver charges.</p>
+						  <a href="{% url 'pharmacyReg' %}" class="btn btn-primary">Register</a>
+						</div>
+					  </div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

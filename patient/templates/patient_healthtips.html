@@ -1,0 +1,43 @@
+{% extends "
+ient_base.html" %}
+{% load static %}
+{% block title %}
+	ContactUs
+{% endblock %}
+{% block extra_style %}
+<style>
+    .eachtip
+    {
+        margin: 15px auto;
+        width: 80%;
+        border-radius: 15px;
+        padding: 10px;
+        border: 2px solid #000;
+    }
+</style>
+{% endblock %}
+{% block content %}
+    <div>
+        <h1 style="text-align: center; margin: 10px;font-weight: bold;color: blue;">Health Tips</h1>
+        {% for tip in tips %}
+            <div class="eachtip">
+                <h1 style="color: orange;"><b>{{tip.problem}}</b></h1>
+                <br>
+                <h4><b>Causes</b></h4>
+                <p>{{tip.causes}}</p>
+                <br>
+                <h4><b>Symptoms</b></h4>
+                <p>{{tip.symptoms}}</p>
+                <br>
+                <h4><b>Preventions</b></h4>
+                <p>{{tip.prevention}}</p>
+                <br>
+                <h4><b>Medicines</b></h4>
+                <p>{{tip.medicine}}</p>
+            </div>
+        {% endfor %}
+        <div>
+            
+        </div>
+    </div>
+{% endblock %}

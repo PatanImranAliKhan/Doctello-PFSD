@@ -1,0 +1,238 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap);
+body 
+{
+    background: #f5f5f5;
+}
+  
+@media only screen and (max-width: 767px)
+{
+    .hide-on-mobile
+    {
+      display: none;
+    }
+}
+
+#navbar {
+    position: relative;
+    width: 100%;
+    top: 0;
+    background-color: #f2f2ff;
+    z-index: 999;
+}
+  
+#navbar .navbar-toggler-icon {
+    padding: 4px;
+}
+  
+#navbar .logo {
+    color: #000;
+    font-weight: bold;
+    font-size: 30px;
+}
+  
+#navbar .nav-link,
+#navbar .navbar-toggler-icon i {
+    color: #000;
+}
+  
+#navbar .nav-link.btn {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+  
+.fixed {
+    position: fixed;
+}
+  
+#navbar.fixed {
+    background: #fff;
+    -webkit-box-shadow: 0 5px 30px -5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 30px -5px rgba(0, 0, 0, 0.2);
+}
+  
+#navbar.fixed .logo {
+    color: #333;
+}
+  
+#navbar.fixed .nav-link,
+#navbar.fixed .navbar-toggler-icon i {
+    color: #333;
+}
+  
+#navbar.fixed .nav-link.btn {
+    color: #fff;
+}
+
+.signup-box
+{
+    background-image: url(../images/login-form-bg.png);
+    background-size: cover;
+    background-position: center;
+    padding: 50px; 
+    width: 100%;
+    margin: 10px auto;
+    min-height: 700px;
+    -webkit-box-shadow: 0 2px 60px -5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 60px -5px rgba(0, 0, 0, 0.1);
+}
+  
+.logo
+{
+    font-family: "Script MT";
+    font-size: 54px;
+    text-align: center;
+    color: #888888;
+    margin-bottom: 30px;
+}
+  
+.logo .logo-font
+{
+    color: #3BC3FF;
+}
+  
+.header-title
+{
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+  
+.signup-form
+{
+    max-width: 500px;
+    margin: 0 auto;
+}
+  
+.signup-form .form-control
+{
+    border-radius: 0;
+    margin-bottom: 20px;
+}
+  
+.signup-form .form-group
+{
+    position: relative;
+}
+  
+.signup-form .form-group .forgot-password
+{
+    position: absolute;
+    top: 6px;
+    right: 15px;
+}
+  
+.signup-form .btn
+{
+    border-radius: 0;
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+  
+.signup-form .btn.btn-primary
+{
+    background: #3BC3FF;
+    border-color: #31c0ff;
+    color: #fff;
+}
+
+@media only screen and (max-width: 767px)
+{
+    .logo
+    {
+      font-size: 34px;
+    }
+    .row
+    {
+        display: inline-block;
+    }
+    .signup-form .form-control
+    {
+        width: 180%;
+    }
+}
+
+@media only screen and (max-width: 576px)
+{
+    .row
+    {
+        display: inline-flex;
+        width: 107%;
+    }
+    .signup-form .form-control
+    {
+        width: 110%;
+    }
+    .signup-form .form-group
+    {
+        margin-left: -20px;
+    }
+}
+
+@media only screen and (max-width: 400px)
+{
+    .row
+    {
+        width: 117%;
+    }
+    .signup-form .form-control
+    {
+        width: 110%;
+    }
+    .signup-form .form-group
+    {
+        margin-left: -20px;
+    }
+}
+
+.corr
+{
+    margin-top: 15%;
+}
+
+.slider-feature-card
+{
+    background: #fff;
+    max-width: 280px;
+    margin: 0 auto;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* -webkit-box-shadow: 0 2px 25px -3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 25px -3px rgba(0, 0, 0, 0.1); */
+}
+  
+.slider-feature-card img
+{
+    height: 80px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+  
+.slider-feature-card h3, .slider-feature-card p 
+{
+    margin-bottom: 10px;
+}
+  
+.carousel-indicators
+{
+    bottom: -50px;
+    color: #000;
+}
+  
+.carousel-indicators li
+{
+    cursor: pointer;
+}
+
+.signupbut
+{
+    background-color: #31c0ff;
+    border-radius: 5px;
+    border-color: #31c0ff;
+}
+
+.signupbut a
+{
+    color: #fff;
+}

@@ -1,0 +1,118 @@
+{% extends "patient_base.html" %}
+{% load static %}
+{% block title %}
+Orders
+{% endblock %}
+{% block extra_style %}
+<style>
+	img
+	{
+		width: 200px;
+		height: 200px;
+		margin: auto;
+	}
+	.patientOrders
+	{
+		margin: 20px 0px;
+	}
+	.cartdisplay
+	{
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		width: 100%;
+	}
+	.card
+	{
+		margin: 10px;
+	}
+	.btn
+	{
+		background-color: orange;
+		color: #fff;
+	}
+	.b2
+	{
+		background-color: rgb(168, 13, 230);
+		color: #fff;
+		padding: 5px;
+	}
+	@media (max-width: 992px)
+	{
+		.cartdisplay
+		{
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	@media (max-width: 525px)
+	{
+		.cartdisplay
+		{
+			grid-template-columns: 1fr;
+			margin: auto;
+			width: 80%;
+		}
+	}
+	.change
+	{
+		background-color: rgb(248, 78, 26);
+		color: #fff;
+	}
+</style>
+{% endblock %}
+{% block content %}
+	<div class="patientOrders">
+		<div class="container">
+			{% if error %}
+			<div class="alert alert-danger" role="alert">
+				{{error}}
+			</div>
+			{% endif %}
+			{% if success %}
+			<div class="alert alert-success" role="alert">
+				{{success}}
+			</div>
+			{% endif %}
+			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+				<div class="cartdisplay">
+					{% if orders %}
+						{% for order in orders %}
+							<form action="{% url 'patient_orders' %}" method="POST" class="card shadow-sm">
+								{% csrf_token %}
+								<img src="{{order.image}}">
+								<div class="card-body">
+									<p class="card-text">
+										<u><b>{{order.medicinename}}</b></u>
+										<br>
+										Price: <strike style="background-color: rgb(139, 245, 139); border-radius: 5px; ">
+											{{order.startprice}}
+										</strike>&nbsp;&nbsp;&nbsp; {{order.endprice}}/-
+										<br>
+										Location: {{order.location}}
+									</p>
+									<div class="d-flex justify-content-between align-items-center">
+										<div class="btn-group">
+											<button type="submit" name="remove" value="{{order.medicinename}},{{order.email}}" class="btn btn-sm btn-outline-secondary">Remove</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						{% endfor %}
+					{% endif %}
+				</div>
+			</div>
+			{% if orders %}
+			<div class="alert change">
+				Total price: {{price}}
+			</div>
+			{% endif %}
+			{% if not orders %}
+			<div class="container">
+				<div class="jumbotron jumbotron-fluid">
+					<h1 class="display-4">No Orders till yet</h1>
+					<p class="lead">No orders has been done by you.</p>
+				</div>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+{% endblock %}

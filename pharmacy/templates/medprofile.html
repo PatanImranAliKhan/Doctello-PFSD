@@ -1,0 +1,160 @@
+{% extends "med_base.html" %}
+{% load static %}
+{% block title %}
+	Profile
+{% endblock %}
+{% block extra_style %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+	@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+
+	body {
+		background: #f9f9f9;
+		font-family: "Roboto", sans-serif;
+	}
+
+	.shadow {
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+	}
+
+	.profile-tab-nav {
+		min-width: 250px;
+	}
+
+	.tab-content {
+		flex: 1;
+	}
+
+	.form-group {
+		margin-bottom: 1.5rem;
+	}
+
+	.nav-pills a.nav-link {
+		padding: 15px 20px;
+		border-bottom: 1px solid #ddd;
+		border-radius: 0;
+		color: #333;
+	}
+
+	.nav-pills a.nav-link i {
+		width: 20px;
+	}
+
+	.img-circle img {
+		height: 100px;
+		width: 100px;
+		border-radius: 100%;
+		border: 5px solid #fff;
+	}
+</style>
+{% endblock %}
+{% block content %}
+<div class="container tab-content p-4 p-md-5" id="v-pills-tabContent">
+	{% if success %}
+		<div class="alert alert-success" role="alert">
+			{{success}}
+		</div>
+	{% endif %}
+	<form class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab" action="{% url 'medprofile' %}" method="POST">
+		{% csrf_token %}
+		<h3 class="mb-4">Account Settings</h3>
+		<br>
+		<div class="row">
+			<div>
+				<div class="d-flex justify-content-center">
+					<img src="{{profile.profilepic.url}}">
+				</div>
+				<div class="d-flex justify-content-center">
+					<form action="{% url 'medupdateprofile' %}" enctype="multipart/form-data" id="profileUpload" method="POST">
+						{% csrf_token %}
+						<input type="file" class="fileinput" id="id_file" name="profilepic" accept="image/png, image/jpeg">
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<label>First Name</label>
+					<input type="text" class="form-control" name="username" value="{{profile.username}}">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label>Shop Name</label>
+					<input type="text" class="form-control" name="shopname" value="{{profile.shopname}}">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label>Email</label>
+					<input type="text" class="form-control" name="email" disabled value="{{profile.email}}">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label>Phone number</label>
+					<input type="tel" class="form-control" name="mobile" value="{{profile.mobile}}">
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group">
+					<label>Address</label>
+					<input type="text" class="form-control" name="address" value="{{profile.address}}">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label>Old password</label>
+					<input type="password" class="form-control" name="oldpass">
+					{% if errorp %}
+					<small style="color: red;">{{errorp}}</small>
+					{% endif %}
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label>New password</label>
+					<input type="password" class="form-control" name="newpass">
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-group">
+					<label>Confirm new password</label>
+					<input type="password" class="form-control" name="confirmpass">
+					{% if errorcon %}
+					<small style="color: red;">{{errorcon}}</small>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+		<div>
+			<button class="btn btn-primary" type="submit" name="update">Update</button>
+			<span class="btn btn-light" onclick="goBack()">Cancel</span>
+		</div>
+	</form>
+</div>
+<script>
+	function goBack()
+	{
+		window.history.back();
+	}
+	
+	$(function () {
+
+		/* SCRIPT TO OPEN THE MODAL WITH THE PREVIEW */
+		$("#id_file").change(function () {
+			if (this.files && this.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function (e) {
+					// $("#image").attr("src", e.target.result);
+					console.log("image upload");
+					$("#profileUpload").submit();
+				}
+				reader.readAsDataURL(this.files[0]);
+			}
+		});
+
+	});
+</script>
+{% endblock %}

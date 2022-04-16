@@ -1,0 +1,160 @@
+{% extends "med_base.html" %}
+{% load static %}
+{% block title %}
+	Pharmacy
+{% endblock %}
+{% block extra_style %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+{% endblock %}
+{% block content %}
+    <div class="top">
+        <div class="leftcontent">
+            <span class="textLeftTop">CONSULT YOUR DOCTOR <span class="specialTextOnline">ONLINE</span></span><br>
+            <span><span class="textLeftTopDown">...good doctor safe Health</span></span>
+        </div>
+        <div class="rightimage">
+            <img class="image" src="{% static 'images/doctorimage.png'%}" alt="doctor">
+        </div>
+    </div>
+
+    <section id="about" class="section-100 bg-white">
+        <div class="container">
+            <div class="row flex-center">
+                <div class="col-md-6 col-lg-6">
+                    <img src="{% static 'images/aboutimg.png'%}" alt="" class="img-fluid m-b-15" data-aos="fade-up">
+                </div>
+                <div class="col-md-6 col-lg-5 offset-lg-1">
+                    <h1 data-aos="fade-left" data-aos-delay="100"><b>Solve The Problems of Patients</b></h1>
+                    <br>
+                    <div class="feat">
+                        <div class="feat-box" data-aos="fade-left" data-aos-delay="300">
+                            <div class="feat-icon">
+                                <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+                            </div>
+                            <div class="feat-content">
+                                <h5>Patient</h5>
+                                <p>Consult doctors based on their problems at any time as if the their consult doctor is not busy.</p>
+                            </div>
+                        </div>
+                        <div class="feat-box" data-aos="fade-left" data-aos-delay="400">
+                            <div class="feat-icon">
+                                <i class="fa fa-user-md fa-2x" aria-hidden="true"></i>
+                            </div>
+                            <div class="feat-content">
+                                <h5>Doctor</h5>
+                                <p>Solve the problems of Patients who consult them and charge fee from them.</p>
+                            </div>
+                        </div>
+                        <div class="feat-box" data-aos="fade-left" data-aos-delay="500">
+                            <div class="feat-icon">
+                                <i class="fa fa-plus-square fa-2x" aria-hidden="true"></i>
+                            </div>
+                            <div class="feat-content">
+                                <h5>Pharmacy</h5>
+                                <p>Help to provide medicines for the patients as per their requirements.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="section-100 bg-white">
+        <div class="container">
+            <h1 class="text-center" data-aos="fade-up" data-aos-delay="100"><b>Our Team</b></h1>
+            <p class="text-center" data-aos="fade-up" data-aos-delay="200">We are very productive and supportive team</p>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="team-box" data-aos="fade-left" data-aos-delay="100">
+                        <img src="{% static 'images/imran.jpg' %}" alt="">
+                        <div class="team-info">
+                            <h4 class="text-muted">P. Imran Ali Khan</h4>
+                            <p class="primary-color">Frontend Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="team-box" data-aos="fade-left" data-aos-delay="200">
+                        <img src="{% static 'images/krishnavamsi.png' %}" alt="">
+                        <div class="team-info">
+                            <h4 class="text-muted">S.Krishna Vamsi</h4>
+                            <p class="primary-color">Backend Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="team-box" data-aos="fade-left" data-aos-delay="300">
+                        <img src="{% static 'images/srinivas.png' %}" alt="">
+                        <div class="team-info">
+                            <h4 class="text-muted">S.Shanmukh Srinivas</h4>
+                            <p class="primary-color">Data Scientist</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 data-aos="fade-up" data-aos-delay="100"><b>Frequently Asked Questions & Discussions</b></h1>
+                    <p data-aos="fade-up" data-aos-delay="200">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <img src="{% static 'images/faqimg.png' %}" alt="faqimage" class="img-fluid" data-aos="fade-up" data-aos-delay="300">
+                </div>
+                <div class="col-md-6">
+                    <div id="accordion" data-aos="fade-left" data-aos-delay="300">
+                        <div class="card">
+                            <div class="card-header" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <h5 class="mb-0">
+                                Process of consulting a doctor
+                                <i class="fa fa-angle-down pull-right"></i>
+                                </h5>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                    First register as an Patient and their find the doctor basedon your problem and consult him. 
+                                    After the consultation you have to pay consultation fee for the doctors.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header collapsed" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <h5 class="mb-0">
+                                Process of an doctor
+                                <i class="fa fa-angle-down pull-right"></i>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    First register as an doctor and wait for the responce of an admin. If the admin accepts you then 
+                                    select your slot for consutation and and solve the problems of patients who consult you.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header collapsed" id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <h5 class="mb-0">
+                                Process of an Phamarcy 
+                                <i class="fa fa-angle-down pull-right"></i>
+                                </h5>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                <div class="card-body">
+                                    First register as an pharmacy and then wait for the responce from the admin. If the admin accepts 
+                                    you then you will get requests from the Patients(who are near your place) to buy a medicne and you 
+                                    have to deliver the medicines to their home or requested place. You can have delivery charges if you 
+                                    needed.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

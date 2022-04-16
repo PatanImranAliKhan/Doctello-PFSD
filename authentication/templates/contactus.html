@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+	ContactUs
+{% endblock %}
+{% block extra_style %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/contactus.css'%}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+{% block content %}
+	<div style="padding-top: 25px;padding-bottom: 50px;">
+		<div class="container">
+			{% if feed %}
+			<div class="alert alert-success" role="alert">
+				{{feed}}
+			</div>
+			{% endif %}
+			<h1>Contact Form</h1>
+			<br><br><br>
+			<div class="contact-form">
+				<div class="contact-form__left">
+					<h3 class="m-b-15">Contact Info</h3>
+					<hr>
+					<div>
+						<small class="light-grey"><i class="fa fa-user m-r-5"></i> Name</small>
+						<p>KLUNIVERSITY deemed to be university</p>
+					</div>
+					<div>
+						<small class="light-grey"><i class="fa fa-envelope m-r-5"></i> Email</small>
+						<p>mail@kluniversity.com</p>
+					</div>
+					<div>
+						<small class="light-grey"><i class="fa fa-phone m-r-5"></i> Phone</small>
+						<p>0863 239 9999</p>
+					</div>
+					<div>
+						<small class="light-grey"><i class="fa fa-map-marker m-r-5"></i> Address</small>
+						<p>Vaddeswaram, green lands</p>
+					</div>
+				</div>
+				<div class="contact-form__right">
+					<h3 class="m-b-15">Contact Us</h3>
+					<hr>
+					<form action="{% url 'contact' %}" method="POST">
+						{% csrf_token %}
+						<div class="form-group">
+						  	<labe for="">Name</label>
+							{{form.name}}
+						</div>
+						<div class="form-group">
+						  	<label for="">Email</label>
+							{{form.email}}
+						</div>
+						<div class="form-group">
+						  	<label for="">Phone</label>
+							{{form.mobile}}
+						</div>
+						<div class="form-group">
+							<label for="">Message</label>
+							{{form.feedback}}
+						</div>
+						<button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

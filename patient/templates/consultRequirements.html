@@ -1,0 +1,84 @@
+{% extends "patient_base.html" %}
+{% load static %}
+{% block title %}
+    Consultation
+{% endblock %}
+{% block extra_style %}
+<link rel="stylesheet" type="text/css" href="{% static 'appointment.css'%}">
+<style>
+	.form
+	{
+		background-color: #fff;
+		padding: 40px;
+		border-radius: 20px;
+	}
+	.but
+	{
+		background-color: orange;
+		color: #fff;
+		padding: 10px;
+		border-radius: 10px;
+	}
+</style>
+{% endblock %}
+{% block content %}
+	<div class="con">
+		<form class="container form" enctype="multipart/form-data" action="{% url 'updateconsultdoctor' %}" id="ft-form" method="POST" accept-charset="UTF-8">
+			{% if success %}
+			<div class="alert alert-success" role="alert">
+				{{success}}
+			</div>
+			{% endif %}
+			{% if error %}
+			<div class="alert alert-danger" role="alert">
+				{{error}}
+			</div>
+			{% endif %}
+			{% csrf_token %}
+			<fieldset>
+				<legend>For person</legend>
+				<div class="two-cols">
+					<label>
+						Name
+						<input type="text" name="username" value="{{username}}">
+					</label>
+					<label>
+						Email address
+						<input type="email" name="useremail" value="{{useremail}}">
+					</label>
+				</div>
+				<div class="two-cols">
+					<label>
+						Doctor Name
+						<input type="text" name="doctorname" value="{{doctorname}}">
+					</label>
+					<label>
+						Doctor Email
+						<input type="email" name="doctoremail" value="{{doctoremail}}">
+					</label>
+					<label>
+						date
+						<input type="date" name="date" value="{{date}}">
+					</label>
+				</div>
+				<div class="two-cols">
+					<label>
+						Problem
+						{{form.problem}}
+					</label>
+					<label>
+						Slot
+						{{form.slot}}
+					</label>
+				</div>
+				<label>
+					Previous medical Reports
+					{{form.report}}
+				</label>
+			</fieldset>
+			<div class="btns">
+				<button type="submit" name="con" value="{{slot}}" class="but">Submit request</button>
+			</div>
+		</form>
+	</div>
+{% endblock %}

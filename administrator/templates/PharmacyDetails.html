@@ -1,0 +1,119 @@
+{% extends "adminbase.html" %}
+{% load static %}
+{% block title %}
+pharmacy Details
+{% endblock %}
+{% block extra_style %}
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+
+    body {
+        background: #4378a0;
+        font-family: "Roboto", sans-serif;
+    }
+
+    .pharmacydetailscontent {
+        padding: 30px 0px;
+    }
+
+    .box {
+        padding: 30px 20px;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (min-width: 768px) {
+        .box {
+            padding: 50px;
+        }
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="pharmacydetailscontent">
+        <div class="box">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-1 col-sm-6">
+                        <b>Username: </b>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <p>{{pharmacy.username}}</p>
+                    </div>
+                    <div class="col-md-1 col-sm-6">
+                        <b>Shopname: </b>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <p>{{pharmacy.shopname}}</p>
+                    </div>
+                    <div class="col-md-1 col-sm-6">
+                        <b>Email : </b>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <p>{{pharmacy.email}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1 col-sm-6">
+                        <b>Mobile: </b>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <p>{{pharmacy.mobile}}</p>
+                    </div>
+                    <div class="col-md-1 col-sm-6">
+                        <b>Location: </b>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <p>{{pharmacy.location}}</p>
+                    </div>
+                    <div class="col-md-1 col-sm-6">
+                        <b>Experience: </b>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <p>&nbsp;&nbsp;&nbsp;{{pharmacy.experience}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-1 col-sm-6">
+                        <b>Address: </b>
+                    </div>
+                    <div class="col-md-5 col-sm-6">
+                        <p>{{pharmacy.address}}</p>
+                    </div>
+                    <div class="col-md-2 col-sm-6">
+                        <b>Deliverycharge: </b>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <p>{{pharmacy.deliverycharge}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-sm-6">
+                        <b>Resume : </b>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <a href="/media/{{pharmacy.resume}}" target="__blank">Pharmacy Resume</a>
+                    </div>
+                    <div class="col-md-2 col-sm-6">
+                        <b>Shop Proofs : </b>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <a href="/media/{{pharmacy.shopproofs}}" target="__blank">Pharmacy ShopProofs</a>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-6 col-md-offset-3">
+                        <button class="btn btn-primary" type="submit">Accept</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

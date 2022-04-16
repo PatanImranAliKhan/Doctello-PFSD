@@ -1,0 +1,100 @@
+{% extends "patient_base.html" %}
+{% load static %}
+{% block title %}
+	Consultations
+{% endblock %}
+{% block extra_style %}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+        @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+        body {
+            background: #f9f9f9;
+            font-family: "Roboto", sans-serif;
+        }
+        .head
+        {
+            text-align: center;
+            margin: auto;
+            margin-bottom: 50px;
+        }
+        .main-content {
+            padding-top: 25px;
+            padding-bottom: 100px;
+        }
+        .shadow {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) ;
+        }
+        .add-card {
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+        }
+        .add-card .add-message {
+            flex: 1;
+            background: #0478aa;
+            color: #fff;
+            border-radius: 20px 0px 0px 20px;
+        }
+        .add-card .add-body {
+            flex: 2;
+            padding: 48px 24px;
+        }
+        .form-group
+        {
+            margin-bottom: 25px;
+        }
+        @media (min-width: 768px) {
+            .add-card .add-body {
+                padding: 50px 50px;
+            }
+        }
+        .add-card .add-body .add-body-wrapper {
+            max-width: 400px;
+        }
+	</style>
+{% endblock %}
+{% block content %}
+<section class="main-content">
+    <div class="container">
+        <div class="d-none d-sm-none d-md-block">
+            <h1 class="text-center text-uppercase">Consult Doctor</h1>
+            <br>
+        </div>
+        <div class="add-card d-flex rounded-lg overflow-hidden bg-white">
+            <div class="add-message d-none d-sm-none d-md-flex flex-column justify-content-center p-5">
+                <img src="{% static 'images/addmedicine.png'%}" alt="Welcome" class="img-fluid mb-3">
+                <h2>Consult Doctor</h2>
+                <p>You can consult the doctor in the slot given by the doctor through mobile or email. Otherwise his mobile will not be reached.</p>
+            </div>
+            <div class="add-body">
+                <div class="add-body-wrapper mx-auto">
+                    <h3 class="text-primary head">Doctor Detials</h3>
+                    <div class="form-group">
+                        <label><b>Doctor name: </b></label>
+                        {{doctor.firstname}} {{doctor.lastname}}
+                    </div>
+                    <div class="form-group">
+                        <label><b>Doctor Email: </b></label>
+                        {{doctor.email}}
+                    </div>
+                    <div class="form-group">
+                        <label><b>Doctor Mobile: </b></label>
+                        {{doctor.mobile}}
+                    </div>
+                    <div class="form-group">
+                        <label><b>Doctor Qualification: </b></label>
+                        {{doctor.qualification}}
+                    </div>
+                    <div class="form-group">
+                        <label><b>Doctor Specialization: </b></label>
+                        {{doctor.specialization}}
+                    </div>
+                    <div class="form-group">
+                        <label><b>Doctor Consultaion Fee: </b></label>
+                        {{doctor.consultationfee}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

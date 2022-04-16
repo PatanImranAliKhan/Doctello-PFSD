@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+	Login
+{% endblock %}
+{% block extra_style %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/loginstyle.css'%}">
+{% endblock %}
+{% block content %}
+	<section class="body">
+		<div class="container">
+			{% if error %}
+			<div class="alert alert-danger" role="alert">
+				{{error}}
+			</div>
+			{% endif %}
+			<div class="login-box" style="background-image: url({% static 'images/login-form-bg.png' %})">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="logo">
+							<span class="logo-font">Welcome to </span>Doctello
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<br>
+						<h3 class="header-title">LOGIN</h3>
+						<form class="login-form"  action="" method="POST">
+							{% csrf_token %}
+							<div class="form-group">
+								{{form.email}}
+							</div>
+							<div class="form-group">
+								{{form.password}}
+							</div>
+							<div class="form-group">
+								<button class="btn btn-primary btn-block">LOGIN</button>
+							</div>
+							<div style="display: inline-flex;">
+								<p>Create a new account&nbsp;&nbsp;</p><a href="{% url 'register' %}">CreateAccount</a>
+							</div>
+						</form>
+					</div>
+					<div class="col-sm-6 hide-on-mobile">
+						<div id="demo" class="carousel slide" data-ride="carousel">
+							<ul class="carousel-indicators">
+								<li data-target="#demo" data-slide-to="0" class="active"></li>
+								<li data-target="#demo" data-slide-to="1"></li>
+								<li data-target="#demo" data-slide-to="2"></li>
+							</ul>
+							<div class="carousel-inner">
+								<div class="carousel-item active">
+									<div class="slider-feature-card">
+										<img src="{% static 'images/icons/student.png'%}" alt="studenticon">
+										<h3 class="slider-title">Patient</h3>
+										<p class="slider-description">Register as a Patient to get contact with the doctor for any health problems.</p>
+										<button class="signupbut"><a href="{% url 'patientReg' %}">Signup</a></button>
+									</div>
+								</div>
+								<div class="carousel-item">
+									<div class="slider-feature-card">
+										<img src="{% static 'images/icons/doctori.png'%}" alt="doctoricon">
+										<h3 class="slider-title">Doctor</h3>
+										<p class="slider-description">Register as a Doctor to solve patients health issues and provide health tips.</p>
+										<button class="signupbut"><a href="{% url 'doctorReg' %}">Signup</a></button>
+									</div>
+								</div>
+								<div class="carousel-item">
+									<div class="slider-feature-card">
+										<img src="{% static 'images/icons/medicineicon.png'%}" alt="medicineicon">
+										<h3 class="slider-title">Pharmacy</h3>
+										<p class="slider-description">Register as a Pharmacy to help the patients by suppling medicines.</p>
+										<button class="signupbut"><a href="{% url 'pharmacyReg' %}">Signup</a></button>
+									</div>
+								</div>
+							</div>
+							<a class="carousel-control-prev" href="#demo" data-slide="prev">
+								<span class="carousel-control-prev-icon"></span>
+							</a>
+							<a class="carousel-control-next" href="#demo" data-slide="next">
+								<span class="carousel-control-next-icon"></span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap");
+body {
+	font-family: "Roboto", Helvetica, sans-serif;
+	background: #fcfbff;
+}
+
+.m-b-15 {
+	margin-bottom: 15px;
+}
+
+.m-r-5 {
+	margin-right: 5px;
+}
+
+.light-grey {
+	color: rgb(92, 83, 83);
+}
+
+.contact-form {
+	background: #fff;
+	box-shadow: 0 23px 73px -17px rgba(0, 0, 0, 0.16);
+	display: flex;
+	flex-wrap: wrap;
+}
+@media (min-width: 993px) {
+	.contact-form {
+		flex-wrap: nowrap;
+	}
+}
+.contact-form__left {
+	background-color: #0478aa;
+	color: #fff;
+	padding: 30px 30px 80px 30px;
+	width: 100%;
+	border-radius: 5px;
+	position: relative;
+}
+@media (min-width: 993px) {
+	.contact-form__left {
+		width: 350px;
+		transform: scale(1.05);
+	}
+}
+.contact-form__right {
+	padding: 30px;
+	width: 100%;
+}
+@media (min-width: 993px) {
+	.contact-form__right {
+		padding: 60px;
+		width: calc(100% - 350px);
+	}
+}
+
+.btn-primary {
+	background: #2f2963;
+	border-color: #2f2963;
+}
+.btn-primary:hover {
+	background: #2f2963;
+	border-color: #2f2963;
+}

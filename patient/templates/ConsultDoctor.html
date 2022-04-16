@@ -1,0 +1,67 @@
+{% extends "patient_base.html" %}
+{% load static %}
+{% block title %}
+	Patient Consultation
+{% endblock %}
+{% block extra_style %}
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		.user-info {
+			display: flex;
+			align-items: center;
+		}
+		.user-info__img img {
+			margin-right: 15px;
+			height: 55px;
+			width: 55px;
+			border-radius: 45px;
+			border: 3px solid #fff;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
+	</style>
+{% endblock %}
+{% block content %}
+	<section class="main-content">
+		<div class="container">
+			<h1 style="margin-bottom: 20px; text-align: center;">Appointments</h1>
+			<div class="row">
+				<div class="col-sm-8 ">
+					{% if doctors %}
+						{% for doctor in doctors %}
+							<form class="card bg-white p-3 mb-4 shadow" action="{% url 'consultdoctor' doctor.email doctor.date %}" method="POST">
+								{% csrf_token %}
+								<div class="d-flex justify-content-between mb-4">
+									<div class="user-info">
+										<div class="user-info__img">
+											<i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 30px; width: 40px;"></i>
+										</div>
+										<div class="user-info__basic">
+											<h6 class="mb-0"><b>{{doctor.email}}</b></h6>
+										</div>
+									</div>
+								</div>
+								<h6 class="mb-0">Consultation fee : 200/-</h6>
+								<a href="#!"><small>Contact</small></a>
+								<div class="d-flex justify-content-between mt-4">
+									<div>
+										<h6 class="mb-0">{{doctor.slot}}
+											<small class="ml-1">{{doctor.date}}</small>
+										</h6>
+									</div>
+									<button name="con" value="{{doctor.slot}}" class="text-success font-weight-bold">Consult</button>
+								</div>
+							</form>
+						{% endfor %}
+					{% endif %}
+				</div>
+			</div>
+			{% if not doctors %}
+			<div class="jumbotron jumbotron-fluid">
+				<div class="container">
+					<h1 class="display-4">No doctors are available now.</h1>
+				</div>
+			</div>
+			{% endif %}
+		</div>
+	</section>
+{% endblock %}
